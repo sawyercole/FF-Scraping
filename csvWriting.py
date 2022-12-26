@@ -81,7 +81,7 @@ def getrow(teamId, week, longest_bench) :
 	soup = bs(page.text, 'html.parser')
 	page.close()
 
-	owner = soup.find('a', class_ = re.compile('userName userId')).text #username of the team owner
+	owner = soup.find('span', class_ = re.compile('userName userId')).text #username of the team owner
 
 	starters = soup.find('div', id = 'tableWrap-1').find_all('td', class_ = 'playerNameAndInfo')
 	starters = [starter.text for starter in starters]
